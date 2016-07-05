@@ -1,0 +1,88 @@
+---
+name: SchedulePacketOBCTestServiceAbsoluteBootTime
+has:
+- name: PacketHeader
+  has:
+  - name: PacketID
+    has:
+    - name: VersionNumber
+      reprsize: 3
+      defval: 0
+    - name: Type
+      reprsize: 1
+      defval: 1
+    - name: DataFieldHeaderFlag
+      reprsize: 1
+      defval: 1
+    - name: ApplicationProcessID
+      reprsize: 11
+      defval: 1
+  - name: PacketSequenceControl
+    has:
+    - name: SequenceFlags
+      reprsize: 2
+      defval: 3
+    - name: SequenceCount
+      reprsize: 14
+      defval: 57
+  - name: PacketLength
+    reprsize: 16
+    defval: 66
+- name: PacketDataField
+  has:
+  - name: DataFieldHeader
+    has:
+    - name: CCSDSSecondaryHeaderFlag
+      reprsize: 1
+      defval: 0
+    - name: TC Packet PUS Version Number
+      reprsize: 3
+      defval: 1
+    - name: Ack
+      reprsize: 4
+      defval: 0
+    - name: Service Type
+      reprsize: 8
+      defval: 11
+    - name: Service Subtype
+      reprsize: 8
+      defval: 4
+    - name: SourceID
+      reprsize: 8
+      defval: 6
+    - name: Spare
+      reprsize: 0
+      defval: 0
+  - name: ApplicationData
+    reprsize: 232
+    defval:
+    - 1
+    - 1
+    - 0
+    - 0
+    - 1
+    - 0 #4=qb50 epoch, 0=absolute
+    - 0 #timeb0
+    - 0 #timeb1
+    - 0 #timeb2
+    - 25 #timeb3
+    - 0 #exectimeoutb0
+    - 33 #exectimeoutb1
+    - 24 #tc packet begins here
+    - 1
+    - 192
+    - 59
+    - 0
+    - 5
+    - 16
+    - 17
+    - 1
+    - 7
+    - 0
+    - 224
+  - name: Spare
+    reprsize: 0
+    defval: 0
+  - name: PacketErrorControl
+    reprsize: 16
+    defval: 5
